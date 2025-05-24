@@ -1,0 +1,149 @@
+:root {
+    --ocean-dark: #0a2463;
+    --ocean-mid: #1a6fc9;
+    --ocean-light: #3e92cc;
+    --foam: #f5f9ff;
+    --anchor: #5a6f8d;
+  }
+  
+  /* Global Styles */
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(to bottom, var(--ocean-dark), var(--ocean-mid));
+    margin: 0;
+    color: var(--foam);
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  /* Header (Top-Left) */
+  .header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    text-align: left;
+  }
+  
+  h1 {
+    font-family: 'Playfair Display', serif;
+    margin: 0 0 5px 0;
+    font-size: 24px;
+  }
+  
+  .subtitle {
+    font-style: italic;
+    opacity: 0.8;
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  /* Centered Content */
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding-top: 60px; /* Prevent header overlap */
+    padding-bottom: 120px; /* Prevent footer overlap */
+  }
+  
+  /* Breathing Circle */
+  .breath-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: var(--ocean-light);
+    margin: 30px auto;
+    position: relative;
+    overflow: hidden;
+    transition: transform 1.5s ease-in-out;
+  }
+  
+  .anchor-icon {
+    position: absolute;
+    font-size: 50px;
+    color: var(--foam);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-5deg);
+    transform-origin: 50% 80%;
+    animation: sway 8s ease-in-out infinite;
+    opacity: 0.8;
+    z-index: 2;
+  }
+  
+  @keyframes sway {
+    0%, 100% { transform: translate(-50%, -50%) rotate(-5deg); }
+    50% { transform: translate(-50%, -50%) rotate(5deg); }
+  }
+  
+  .wave {
+    position: absolute;
+    bottom: 0;
+    width: 200%;
+    height: 20%;
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%23f5f9ff" opacity=".25"/></svg>');
+    animation: wave 10s linear infinite;
+  }
+  
+  @keyframes wave {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  
+  /* Depth Meter */
+  .depth-meter {
+    width: 80%;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    margin: 20px auto;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .depth-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(to right, var(--ocean-light), var(--foam));
+    transition: width 0.5s;
+  }
+  
+  .depth-label {
+    position: absolute;
+    right: 10px;
+    top: 3px;
+    font-size: 12px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  }
+  
+  /* Controls */
+  .controls button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    background: var(--ocean-light);
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .controls button:disabled {
+    background: var(--anchor);
+    opacity: 0.5;
+  }
+  
+  #sound-btn {
+    background: var(--anchor) !important;
+  }
+  
+  .instruction {
+    font-style: italic;
+    margin-top: 20px;
+  }
+  
+  .breath-paused .anchor-icon {
+    animation-play-state: paused;
+  }

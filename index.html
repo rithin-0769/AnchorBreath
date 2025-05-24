@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AnchorBreath | Nautical Mindfulness</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Title & Subtitle (Top-Left) -->
+  <div class="header">
+    <h1>AnchorBreath</h1>
+    <p class="subtitle">Drop anchor. Breathe deep.</p>
+  </div>
+
+  <!-- Centered Content -->
+  <div class="container">
+    <div class="breath-circle">
+      <i class="fas fa-anchor anchor-icon"></i>
+      <div class="wave"></div>
+    </div><br><br>
+
+    <div class="depth-meter">
+      <div class="depth-fill"></div>
+      <span class="depth-label">Depth: 0%</span>
+    </div>
+
+    <div class="controls">
+      <button id="start-btn"><i class="fas fa-play"></i> Start</button>
+      <button id="stop-btn" disabled><i class="fas fa-pause"></i> Pause</button>
+      <button id="sound-btn"><i class="fas fa-wave-square"></i> Sound: On</button>
+    </div>
+    <p class="instruction">Press "Start" to drop anchor</p>
+
+    <!-- Wave Sound -->
+    <audio id="wave-audio" loop>
+      <source src="waves.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
